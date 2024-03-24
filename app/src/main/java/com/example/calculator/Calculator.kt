@@ -35,6 +35,11 @@ fun Calculator(
                 .align(Alignment.BottomCenter),
             verticalArrangement = Arrangement.spacedBy(buttonSpacing)
         ) {
+            val fontSize = if(state.number1.length + state.number2.length > 10) {
+                30.sp
+            } else {
+                50.sp
+            }
             Text(
                 text = state.number1 + (state.operation?.symbol?: "") + state.number2,
                 textAlign = TextAlign.End,
@@ -42,7 +47,7 @@ fun Calculator(
                     .fillMaxWidth()
                     .padding(vertical = 32.dp),
                 fontWeight = FontWeight.Light,
-                fontSize = 50.sp,
+                fontSize = fontSize,
                 color = Color.White,
                 maxLines = 2
             )
